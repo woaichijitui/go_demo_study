@@ -1,0 +1,21 @@
+syntax = "proto3";
+//项目中文件夹的位置
+package steam_grpc;
+
+// 指定golang包名
+option go_package = "/proto";
+
+
+service stream_service {
+  rpc DownLoadFile(Request) returns ( stream Response){}
+}
+
+message Request {
+  string Name = 1 ;
+
+}
+
+message Response {
+  string file_name = 1;
+  bytes content = 2 ;
+}

@@ -1,0 +1,6 @@
+这是writer 写入测试
+ada
+adada
+adadda
+ello
+hello
