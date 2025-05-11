@@ -1,0 +1,18 @@
+syntax = "proto3";
+package hello_grpc;
+
+// 指定golang包名
+option go_package = "/hello_grpc";
+
+
+service Hello {
+  rpc Hello(HelloRequest) returns (HellResponse) {}
+}
+
+message  HelloRequest {
+    fixed32 ID = 1;
+}
+
+message HellResponse {
+  string Name =1 ;
+}

@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+
+
+package grpc_study;
+
+// 指定golang包名
+option go_package = "/proto";
+
+
+service Say {
+  rpc Say(HelloRequest) returns (HellResponse) {}
+}
+
+message  HelloRequest {
+  fixed32 ID = 1;
+}
+
+message HellResponse {
+  string Name =1 ;
+}
+
+service Look {
+  rpc Look(HelloRequest) returns (HellResponse) {}
+}

@@ -1,0 +1,3 @@
+p, alice, /api/data, GET
+p, bob, /api/data, POST
+p, root, /api/*, (GET)|(POST)|(DELETE)

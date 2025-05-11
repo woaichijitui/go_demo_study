@@ -1,0 +1,12 @@
+AAA
+			fmt.Println(i)
+			fmt.Println(i)
+			fmt.Println(i)
+			fmt.Println(i)
+			fmt.Println(i)
+			fmt.Println(i)
+			fmt.Println(i)
+			fmt.Println(i)
+			fmt.Println(i)
+			fmt.Println(i)
+			fmt.Println(i)

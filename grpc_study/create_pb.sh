@@ -1,0 +1,1 @@
+protoc -I . --go_out=plugins=grpc:./grpc/grpc_bp/ ./grpc/proto/stream.proto

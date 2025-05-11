@@ -1,0 +1,40 @@
+time="2024-05-30T14:54:24+08:00" level=error msg="你好"
+time="2024-05-30T14:54:24+08:00" level=warning msg="你好"
+time="2024-05-30T14:54:24+08:00" level=info msg="你好"
+time="2024-05-30T14:55:23+08:00" level=error msg="你好"
+time="2024-05-30T14:55:23+08:00" level=warning msg="你好"
+time="2024-05-30T14:55:23+08:00" level=info msg="你好"
+time="2024-05-30T14:56:39+08:00" level=error msg="你好"
+time="2024-05-30T14:56:39+08:00" level=warning msg="你好"
+time="2024-05-30T14:56:39+08:00" level=info msg="你好"
+time="2024-05-30T14:57:06+08:00" level=error msg="你好"
+time="2024-05-30T14:57:06+08:00" level=warning msg="你好"
+time="2024-05-30T14:57:06+08:00" level=info msg="你好"
+time="2024-05-30T14:57:34+08:00" level=error msg="你好"
+time="2024-05-30T14:57:34+08:00" level=warning msg="你好"
+time="2024-05-30T14:57:34+08:00" level=info msg="你好"
+time="2024-05-30T14:58:27+08:00" level=error msg="你好"
+time="2024-05-30T14:58:27+08:00" level=warning msg="你好"
+time="2024-05-30T14:58:27+08:00" level=info msg="你好"
+[2024-05-30 15:40:52] [31m[error][0m 5.自定义格式.go:99 main.main 你好
+[2024-05-30 15:40:52] [33m[warning][0m 5.自定义格式.go:100 main.main 你好
+[2024-05-30 15:40:52] [36m[info][0m 5.自定义格式.go:101 main.main 你好
+[2024-05-30 15:40:52] [37m[debug][0m 5.自定义格式.go:102 main.main 你好
+ [2024-05-30 15:47:50] [31m[error][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:100 main.main 你好
+ [2024-05-30 15:47:50] [33m[warning][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:101 main.main 你好
+ [2024-05-30 15:47:50] [36m[info][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:102 main.main 你好
+ [2024-05-30 15:47:50] [37m[debug][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:103 main.main 你好
+[gin] [2024-05-30 15:49:05] [31m[error][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:100 main.main 你好
+[gin] [2024-05-30 15:49:05] [33m[warning][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:101 main.main 你好
+[gin] [2024-05-30 15:49:05] [36m[info][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:102 main.main 你好
+[gin] [2024-05-30 15:49:05] [37m[debug][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:103 main.main 你好
+[gin] [2024-05-30 15:50:02] [31m[error][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:101 main.main 你好
+[gin] [2024-05-30 15:50:02] [33m[warning][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:102 main.main 你好
+[gin] [2024-05-30 15:50:02] [36m[info][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:103 main.main 你好
+[gin] [2024-05-30 15:50:02] [37m[debug][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:104 main.main 你好
+[gin] [2024-05-30 15:50:02] [37m[trace][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:105 main.main 你好
+[gin] [2024-05-30 15:51:07] [31m[error][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:102 main.main 你好
+[gin] [2024-05-30 15:51:07] [33m[warning][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:103 main.main 你好
+[gin] [2024-05-30 15:51:07] [36m[info][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:104 main.main 你好
+[gin] [2024-05-30 15:51:07] [37m[debug][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:105 main.main 你好
+[gin] [2024-05-30 15:51:07] [37m[trace][0m F:/系统/coding/gin_study/logrus_study/5.自定义格式.go:106 main.main 你好
