@@ -5,5 +5,6 @@ import "csabin_study/rudiment"
 func main() {
 	//Rudiment()
 	//rudiment.GormCacheAndCURD()
-	rudiment.TestCasbin()
+	//rudiment.TestCasbin()
+	rudiment.Test4()
 }
