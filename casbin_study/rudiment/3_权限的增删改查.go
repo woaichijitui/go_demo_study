@@ -13,8 +13,8 @@ import (
 )
 
 type CasbinService struct {
-	enforcer *casbin.Enforcer
-	adapter  *gormadapter.Adapter
+	Enforcer *casbin.Enforcer
+	Adapte   *gormadapter.Adapter
 }
 
 type User struct {
@@ -142,8 +142,8 @@ func CasbinInit() (casbinService *CasbinService) {
 	e, err := casbin.NewEnforcer(m, adapter)
 
 	return &CasbinService{
-		enforcer: e,
-		adapter:  adapter,
+		Enforcer: e,
+		Adapte:   adapter,
 	}
 }
 
@@ -151,7 +151,7 @@ func CasbinInit() (casbinService *CasbinService) {
 
 // 获取所有用户以及关联的角色
 func (c *CasbinService) GetUsers() (users []User, err error) {
-	policy, err := c.enforcer.GetGroupingPolicy()
+	policy, err := c.Enforcer.GetGroupingPolicy()
 	if err != nil {
 		return nil, err
 	}
@@ -178,39 +178,39 @@ func (c *CasbinService) GetUsers() (users []User, err error) {
 // 获取所有角色组
 func (c *CasbinService) GetRoles() (roles []string, err error) {
 
-	return c.enforcer.GetAllRoles()
+	return c.Enforcer.GetAllRoles()
 }
 
 // 角色组添加用户，没有组默认添加
 func (c *CasbinService) AddUserInRoles(username, role string) (err error) {
-	_, err = c.enforcer.AddRoleForUser(username, role)
+	_, err = c.Enforcer.AddRoleForUser(username, role)
 	if err != nil {
 		return err
 	}
-	return c.enforcer.SavePolicy() // 保存策略 持久化到数据库
+	return c.Enforcer.SavePolicy() // 保存策略 持久化到数据库
 
 }
 
 // 角色组删除用户
 func (c *CasbinService) DeleteUserInRoles(username, role string) (err error) {
-	_, err = c.enforcer.DeleteRoleForUser(username, role)
+	_, err = c.Enforcer.DeleteRoleForUser(username, role)
 	if err != nil {
 		return err
 	}
-	return c.enforcer.SavePolicy() // 保存策略 持久化到数据库
+	return c.Enforcer.SavePolicy() // 保存策略 持久化到数据库
 
 }
 
 // 角色组权限的增删改查
 type rolePolicy struct {
-	RoleName string `gorm:"column:v0"`
-	Path     string `gorm:"column:v1"`
-	Method   string `gorm:"column:v2"`
+	RoleName string `gorm:"column:v0" json:"roleName"`
+	Path     string `gorm:"column:v1" json:"path" `
+	Method   string `gorm:"column:v2" json:"method"`
 }
 
 // 获取所有角色组的权限
 func (c *CasbinService) GetRolesPolicy() (roles []rolePolicy, err error) {
-	err = c.adapter.GetDb().Model(&gormadapter.CasbinRule{}).Where("ptype = 'p'").Find(&roles).Error
+	err = c.Adapte.GetDb().Model(&gormadapter.CasbinRule{}).Where("ptype = 'p'").Find(&roles).Error
 	if err != nil {
 		return nil, err
 	}
@@ -220,40 +220,40 @@ func (c *CasbinService) GetRolesPolicy() (roles []rolePolicy, err error) {
 // 创建角色组权限, 已有的会忽略
 func (c *CasbinService) CreateRolePolicy(role string, path string, method string) (err error) {
 
-	err = c.enforcer.LoadPolicy()
+	err = c.Enforcer.LoadPolicy()
 	if err != nil {
 		return err
 	}
 
-	_, err = c.enforcer.AddPolicy(role, path, method)
+	_, err = c.Enforcer.AddPolicy(role, path, method)
 	if err != nil {
 		return err
 	}
 
-	return c.enforcer.SavePolicy() // 保存策略 持久化到数据库
+	return c.Enforcer.SavePolicy() // 保存策略 持久化到数据库
 
 }
 
 // 修改角色组权限
 func (c *CasbinService) UpdateRolePolicy(old, new rolePolicy) (err error) {
-	_, err = c.enforcer.UpdatePolicy([]string{old.RoleName, old.Path, old.Method}, []string{new.RoleName, new.Path, new.Method})
+	_, err = c.Enforcer.UpdatePolicy([]string{old.RoleName, old.Path, old.Method}, []string{new.RoleName, new.Path, new.Method})
 	if err != nil {
 		return err
 	}
-	return c.enforcer.SavePolicy() // 保存策略 持久化到数据库
+	return c.Enforcer.SavePolicy() // 保存策略 持久化到数据库
 
 }
 
 // 删除角色组权限
 func (c *CasbinService) DeleteRolePolicy(rolePolicy rolePolicy) (err error) {
-	_, err = c.enforcer.RemovePolicy(rolePolicy.RoleName, rolePolicy.Path, rolePolicy.Method)
+	_, err = c.Enforcer.RemovePolicy(rolePolicy.RoleName, rolePolicy.Path, rolePolicy.Method)
 	if err != nil {
 		return err
 	}
-	return c.enforcer.SavePolicy() // 保存策略 持久化到数据库
+	return c.Enforcer.SavePolicy() // 保存策略 持久化到数据库
 }
 
 // 验证用户权限
 func (c *CasbinService) CanAccess(roleName, path, method string) (ok bool, err error) {
-	return c.enforcer.Enforce(roleName, path, method)
+	return c.Enforcer.Enforce(roleName, path, method)
 }
