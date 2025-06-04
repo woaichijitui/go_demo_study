@@ -10,13 +10,13 @@ import (
 	"time"
 )
 
-const TOPIC = "test1"
+const TOPIC = "test"
 
 var reader *kafka.Reader
 
 func WriteKafka(ctx context.Context) {
 	writer := kafka.Writer{
-		Addr:                   kafka.TCP("0.0.0.0:9092", "0.0.0.0:9093", "0.0.0.0:9093"),
+		Addr:                   kafka.TCP("172.31.191.51:9092", "172.31.191.51:9095", "172.31.176.1:9097"),
 		Topic:                  TOPIC,
 		Balancer:               &kafka.Hash{},
 		RequiredAcks:           kafka.RequireNone,
@@ -50,10 +50,10 @@ func WriteKafka(ctx context.Context) {
 }
 func ReadKafka(ctx context.Context) {
 	reader = kafka.NewReader(kafka.ReaderConfig{
-		Brokers:        []string{"0.0.0.0:9092", "0.0.0.0:9093", "0.0.0.0:9094"},
+		Brokers:        []string{"172.31.176.1:9092", "172.31.176.1:9095", "172.31.176.1:9097"},
 		Topic:          TOPIC,
 		CommitInterval: 1 * time.Second,
-		GroupID:        "group_id_1",
+		GroupID:        "my_group1",
 		StartOffset:    kafka.FirstOffset,
 	})
 	//defer reader.Close()
@@ -79,7 +79,7 @@ func ListenSingal() {
 	os.Exit(0)
 }
 
-func main() {
+func test() {
 	ctx := context.Background()
 	WriteKafka(ctx)
 	go ListenSingal()

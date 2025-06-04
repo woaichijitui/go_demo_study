@@ -130,6 +130,7 @@ type Show struct {
 	Param
 }
 
+// 这是面试题目
 func test4() {
 	s := new(Show)
 	s.Param["RMB"] = 10000

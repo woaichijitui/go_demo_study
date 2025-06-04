@@ -1,4 +1,5 @@
 **/.idea/
+/study_project
 #logs
 #uploads
 #.air.toml
